@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[textwidth=12cm,centering]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{background}
+
+\newcommand*\wb[3]{%
+  {\fontsize{#1}{#2}\usefont{U}{webo}{xl}{n}#3}}
+
+% The page frame
+\SetBgColor{Goldenrod3}
+\SetBgAngle{0}
+\SetBgScale{1}
+\SetBgOpacity{1}
+\SetBgContents{%
+\begin{tikzpicture}
+\node at (0.5\paperwidth,0) {\wb{80}{34}{E}\rule[60pt]{.2\textwidth}{0.4pt}%
+  \raisebox{55pt}{%
+  \makebox[.6\textwidth]{\ \fontsize{24}{29}\selectfont\scshape Café IDC }}%
+  \rule[60pt]{.2\textwidth}{0.4pt}\wb{80}{34}{F}};
+\node at (2,-0.5\textheight) {\rule{0.4pt}{.8\textheight}};
+\node at (19.5,-0.5\textheight) {\rule{0.4pt}{.8\textheight}};
+\node at (0.5\paperwidth,-\textheight) {\wb{80}{34}{G}\rule[-10pt]{\textwidth}{0.4pt}\wb{80}{34}{H}} ;
+\end{tikzpicture}%
+}
+
+% colorize text
+\newcommand*\ColText[1]{\textcolor{Goldenrod3}{#1}}
+
+% a tabular* for each food group
+\newenvironment{Group}[2]
+  {\noindent\begin{tabular*}{\textwidth}{@{}p{.8\linewidth}@{\extracolsep{\fill}}r@{}}
+    {\fontsize{24}{29}\selectfont\ColText{#1}}\\[0.4em]
+    {\fontsize{16}{21}\selectfont\ColText{#2}}\\[0.8em]
+  }
+  {\end{tabular*}}
+
+% to format each entry
+\newcommand*\Entry[2]{%
+  \sffamily#1 & #2}
+
+% to format each subentry
+\newcommand*\Expl[1]{%
+  \hspace*{1em}\footnotesize #1}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{Group}{Total emissions from meat}{Billion tonnes of CO$_2$ per year}
+  \Entry{Beef}{2.9} \\
+  \Entry{Cattle Milk}{1.4} \\
+  \Entry{Sheep and Goats}{0.4} \\
+  \Entry{Buffalo Milk and Meat}{0.6} \\
+  \Entry{Pigmeat}{0.7} \\
+  \Entry{Chicken Meat}{0.4} \\
+  \Entry{Chicken Eggs}{0.2} \\
+\end{Group}
+
+\vfill
+
+\begin{Group}{Emissions by Calorie}{Kilograms of CO$_2$ per 1000 Calories}
+  \Entry{Lamb}{20.85} \\
+  \Entry{Beef}{13.78} \\
+  \Entry{Turkey}{5.83} \\
+  \Entry{Broccoli}{5.71} \\
+  \Entry{Tuna}{5.26} \\
+  \Entry{Salmon}{5.15} \\
+  \Entry{Cheese}{4.47} \\
+  \Entry{Pork}{4.45} \\
+  \Entry{Yogurt}{3.49} \\
+  \Entry{Chicken}{3.37} \\
+  \Entry{Milk}{3.17} \\
+  \Entry{Eggs}{3.06} \\
+  \Entry{Rice}{2.08} \\
+  \Entry{Potatoes}{1.46} \\
+  \Entry{Beans}{1.40} \\
+  \Entry{Tomato}{1.39} \\
+  \Entry{Tofu}{1.38} \\
+  \Entry{Lentils}{0.78} \\
+  \Entry{Peanut Butter}{0.42} \\
+  \Entry{Nuts}{0.39} \\
+  \Entry{\textbf{Soy Meal}}{\textbf{0.14}} \\
+\end{Group}
+
+\vfill
+
+Flip page for the nutritional facts and ingredients of soylent
+
+\end{document}
